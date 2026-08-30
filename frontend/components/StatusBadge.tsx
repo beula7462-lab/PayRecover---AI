@@ -18,7 +18,7 @@ export default function StatusBadge({ status, className }: StatusBadgeProps) {
       case "PENDING_RECOVERY":
         return <Clock className="w-3.5 h-3.5 text-amber-400" />;
       case "ACTION_EXECUTED":
-        return <Zap className="w-3.5 h-3.5 text-indigo-400" />;
+        return <Zap className="w-3.5 h-3.5 text-yellow-400" />;
       case "FAILED":
       default:
         return <AlertCircle className="w-3.5 h-3.5 text-rose-400" />;

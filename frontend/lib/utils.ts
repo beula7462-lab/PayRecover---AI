@@ -53,7 +53,7 @@ export function getStatusColor(status: string) {
     case "PENDING_RECOVERY":
       return "bg-amber-500/10 text-amber-400 border-amber-500/30";
     case "ACTION_EXECUTED":
-      return "bg-indigo-500/10 text-indigo-400 border-indigo-500/30";
+      return "bg-yellow-500/15 text-yellow-300 border-yellow-500/40";
     case "FAILED":
     default:
       return "bg-rose-500/10 text-rose-400 border-rose-500/30";

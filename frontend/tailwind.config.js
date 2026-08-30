@@ -9,12 +9,14 @@ module.exports = {
     extend: {
       colors: {
         fintech: {
-          bg: "#080c16",
-          card: "#0f172a",
-          border: "#1e293b",
+          bg: "#080c14",
+          card: "#121826",
+          border: "#1f293d",
           subtle: "#334155",
-          accent: "#4f46e5",
-          accentHover: "#4338ca",
+          accent: "#eab308",
+          accentHover: "#ca8a04",
+          accentLight: "#facc15",
+          accentDark: "#a16207",
           success: "#10b981",
           warning: "#f59e0b",
           danger: "#ef4444",
@@ -25,3 +27,4 @@ module.exports = {
   },
   plugins: [],
 };
+

@@ -10,7 +10,7 @@ interface KpiCardProps {
   change?: string;
   isPositive?: boolean;
   icon: LucideIcon;
-  variant?: "danger" | "success" | "indigo" | "amber";
+  variant?: "danger" | "success" | "yellow" | "amber";
   loading?: boolean;
 }
 
@@ -21,7 +21,7 @@ export default function KpiCard({
   change,
   isPositive = true,
   icon: Icon,
-  variant = "indigo",
+  variant = "yellow",
   loading = false,
 }: KpiCardProps) {
   const variantStyles = {
@@ -35,14 +35,14 @@ export default function KpiCard({
       iconBg: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
       text: "text-emerald-400",
     },
-    indigo: {
-      bg: "from-indigo-500/10 via-indigo-500/5 to-transparent border-indigo-500/20",
-      iconBg: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
-      text: "text-indigo-400",
+    yellow: {
+      bg: "from-yellow-500/15 via-yellow-500/5 to-transparent border-yellow-500/30",
+      iconBg: "bg-yellow-500/20 text-yellow-400 border-yellow-500/40",
+      text: "text-yellow-400",
     },
     amber: {
-      bg: "from-amber-500/10 via-amber-500/5 to-transparent border-amber-500/20",
-      iconBg: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+      bg: "from-amber-500/15 via-amber-500/5 to-transparent border-amber-500/30",
+      iconBg: "bg-amber-500/20 text-amber-400 border-amber-500/40",
       text: "text-amber-400",
     },
   };

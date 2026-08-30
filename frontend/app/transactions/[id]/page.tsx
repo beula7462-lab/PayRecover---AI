@@ -106,7 +106,7 @@ export default function TransactionAnalysisPage() {
         <p className="text-sm text-slate-400">Transaction ID &apos;{txnId}&apos; could not be located in database.</p>
         <Link
           href="/payments"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-extrabold"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Payments</span>
@@ -157,7 +157,7 @@ export default function TransactionAnalysisPage() {
             </div>
             <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
               <span className="text-[11px] font-semibold text-slate-400 uppercase">Payment Method</span>
-              <p className="text-sm font-bold text-indigo-300 mt-1">{txn.payment_method}</p>
+              <p className="text-sm font-bold text-yellow-300 mt-1">{txn.payment_method}</p>
             </div>
             <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
               <span className="text-[11px] font-semibold text-slate-400 uppercase">Attempt Count</span>
@@ -172,7 +172,7 @@ export default function TransactionAnalysisPage() {
           {/* Disruption Analysis & AI Explanation Card */}
           <div className="fintech-card p-6 rounded-2xl border space-y-6">
             <div className="flex items-center gap-2.5 pb-3 border-b border-slate-800">
-              <Bot className="w-5 h-5 text-indigo-400" />
+              <Bot className="w-5 h-5 text-yellow-400" />
               <h2 className="text-base font-bold text-white">AI Disruption Diagnosis & Recommendations</h2>
             </div>
 
@@ -189,14 +189,14 @@ export default function TransactionAnalysisPage() {
             {/* AI Explanation Bullet Points */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
                 Scoring Engine Explainability Logic
               </h4>
 
               <ul className="space-y-2">
                 {ai.explanation.map((exp, idx) => (
                   <li key={idx} className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 text-xs text-slate-300 flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0" />
                     <span>{exp}</span>
                   </li>
                 ))}
@@ -207,7 +207,7 @@ export default function TransactionAnalysisPage() {
           {/* Historical Actions Timeline */}
           <div className="fintech-card p-6 rounded-2xl border space-y-4">
             <div className="flex items-center gap-2 pb-3 border-b border-slate-800">
-              <History className="w-4 h-4 text-indigo-400" />
+              <History className="w-4 h-4 text-yellow-400" />
               <h3 className="text-sm font-bold text-white">Recovery Execution Log History</h3>
             </div>
 
@@ -253,7 +253,7 @@ export default function TransactionAnalysisPage() {
               </div>
               <div className="flex justify-between text-slate-400">
                 <span>Recommended Action</span>
-                <span className="text-indigo-400 font-bold">{ai.recommended_action}</span>
+                <span className="text-yellow-400 font-bold">{ai.recommended_action}</span>
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@ export default function TransactionAnalysisPage() {
           {/* Action Execution Panel */}
           <div className="fintech-card p-6 rounded-2xl border space-y-4">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-indigo-400" />
+              <Zap className="w-4 h-4 text-yellow-400" />
               <span>Execute Recovery Workflow</span>
             </h3>
 
@@ -277,19 +277,19 @@ export default function TransactionAnalysisPage() {
                   onClick={() => setSelectedAction("RETRY_PAYMENT")}
                   className={`w-full p-3 rounded-xl border text-left text-xs font-bold flex items-center justify-between transition-all ${
                     ai.recommended_action === "RETRY_PAYMENT"
-                      ? "bg-indigo-600/20 border-indigo-500 text-indigo-200"
+                      ? "bg-yellow-500/15 border-yellow-500/50 text-yellow-200"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Zap className="w-4 h-4 text-indigo-400" />
+                    <Zap className="w-4 h-4 text-yellow-400" />
                     <div>
                       <p>Retry Payment (Auto-Submit)</p>
                       <p className="text-[10px] text-slate-400 font-normal">Ideal for transient bank errors</p>
                     </div>
                   </div>
                   {ai.recommended_action === "RETRY_PAYMENT" && (
-                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-indigo-500/30 text-indigo-300">
+                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-yellow-500/25 text-yellow-300 border border-yellow-500/40">
                       AI Choice
                     </span>
                   )}
@@ -299,19 +299,19 @@ export default function TransactionAnalysisPage() {
                   onClick={() => setSelectedAction("SEND_PAYMENT_LINK")}
                   className={`w-full p-3 rounded-xl border text-left text-xs font-bold flex items-center justify-between transition-all ${
                     ai.recommended_action === "SEND_PAYMENT_LINK"
-                      ? "bg-indigo-600/20 border-indigo-500 text-indigo-200"
+                      ? "bg-yellow-500/15 border-yellow-500/50 text-yellow-200"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Send className="w-4 h-4 text-indigo-400" />
+                    <Send className="w-4 h-4 text-yellow-400" />
                     <div>
                       <p>Send Payment Link</p>
                       <p className="text-[10px] text-slate-400 font-normal">SMS / WhatsApp / Email smart link</p>
                     </div>
                   </div>
                   {ai.recommended_action === "SEND_PAYMENT_LINK" && (
-                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-indigo-500/30 text-indigo-300">
+                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-yellow-500/25 text-yellow-300 border border-yellow-500/40">
                       AI Choice
                     </span>
                   )}
@@ -321,19 +321,19 @@ export default function TransactionAnalysisPage() {
                   onClick={() => setSelectedAction("SCHEDULE_REMINDER")}
                   className={`w-full p-3 rounded-xl border text-left text-xs font-bold flex items-center justify-between transition-all ${
                     ai.recommended_action === "SCHEDULE_REMINDER"
-                      ? "bg-indigo-600/20 border-indigo-500 text-indigo-200"
+                      ? "bg-yellow-500/15 border-yellow-500/50 text-yellow-200"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Calendar className="w-4 h-4 text-indigo-400" />
+                    <Calendar className="w-4 h-4 text-yellow-400" />
                     <div>
                       <p>Schedule Automated Reminder</p>
                       <p className="text-[10px] text-slate-400 font-normal">Delay retry to avoid spamming</p>
                     </div>
                   </div>
                   {ai.recommended_action === "SCHEDULE_REMINDER" && (
-                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-indigo-500/30 text-indigo-300">
+                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-yellow-500/25 text-yellow-300 border border-yellow-500/40">
                       AI Choice
                     </span>
                   )}
@@ -348,13 +348,13 @@ export default function TransactionAnalysisPage() {
       {selectedAction && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="fintech-card p-6 rounded-2xl border border-slate-800 max-w-md w-full space-y-4 animate-scale-in">
-            <div className="flex items-center gap-3 text-indigo-400">
+            <div className="flex items-center gap-3 text-yellow-400">
               <Zap className="w-6 h-6" />
               <h3 className="text-lg font-extrabold text-white">Confirm Recovery Action</h3>
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed">
-              You are executing <strong className="text-indigo-300">{selectedAction}</strong> for customer{" "}
+              You are executing <strong className="text-yellow-300">{selectedAction}</strong> for customer{" "}
               <strong className="text-white">{txn.customer_name}</strong> ({formatINR(txn.amount)}).
             </p>
 
@@ -367,7 +367,7 @@ export default function TransactionAnalysisPage() {
                 placeholder="e.g. Manual authorization trigger by operator"
                 value={notesInput}
                 onChange={(e) => setNotesInput(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-yellow-500"
               />
             </div>
 
@@ -382,16 +382,16 @@ export default function TransactionAnalysisPage() {
               <button
                 onClick={handleExecuteAction}
                 disabled={executing}
-                className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-indigo-600/30"
+                className="px-5 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-extrabold flex items-center gap-2 shadow-lg shadow-yellow-500/30"
               >
                 {executing ? (
                   <>
-                    <Zap className="w-3.5 h-3.5 animate-spin" />
+                    <Zap className="w-3.5 h-3.5 animate-spin fill-slate-950" />
                     <span>Executing...</span>
                   </>
                 ) : (
                   <>
-                    <Zap className="w-3.5 h-3.5" />
+                    <Zap className="w-3.5 h-3.5 fill-slate-950" />
                     <span>Confirm & Execute</span>
                   </>
                 )}

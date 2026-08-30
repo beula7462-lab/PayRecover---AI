@@ -10,28 +10,28 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #080c16;
-  color: #f8fafc;
+  background-color: #080c14;
+  color: #ffffff;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Custom Glassmorphism Card Style */
+/* Custom Glassmorphism Card Style - Yellow & White primary accents */
 .fintech-card {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(18, 24, 38, 0.9);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
 }
 
 .fintech-card-hover {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fintech-card-hover:hover {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: rgba(234, 179, 8, 0.45);
   transform: translateY(-2px);
-  box-shadow: 0 12px 36px 0 rgba(99, 102, 241, 0.15);
+  box-shadow: 0 12px 36px 0 rgba(234, 179, 8, 0.18);
 }
 
 /* Skeleton Loading Animation */
@@ -55,14 +55,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080c16;
+  background: #080c14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #1f293d;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #eab308;
 }

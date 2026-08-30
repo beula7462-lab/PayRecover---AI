@@ -30,7 +30,7 @@ import { api } from "@/lib/api";
 import { AnalyticsOverview } from "@/lib/types";
 import { formatINR, formatPercent } from "@/lib/utils";
 
-const PIE_COLORS = ["#6366f1", "#f59e0b", "#ef4444", "#10b981", "#3b82f6", "#8b5cf6", "#ec4899"];
+const PIE_COLORS = ["#eab308", "#f59e0b", "#ef4444", "#10b981", "#3b82f6", "#8b5cf6", "#ec4899"];
 
 export default function AnalyticsPage() {
   const [data, setData] = useState<AnalyticsOverview | null>(null);
@@ -64,7 +64,7 @@ export default function AnalyticsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-            <BarChart3 className="w-8 h-8 text-indigo-400" />
+            <BarChart3 className="w-8 h-8 text-yellow-400" />
             <span>Recovery & Disruption Analytics</span>
           </h1>
           <p className="text-slate-400 text-sm mt-1">
@@ -77,7 +77,7 @@ export default function AnalyticsPage() {
           disabled={loading}
           className="self-start sm:self-auto px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs font-semibold flex items-center gap-2 transition-all"
         >
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-indigo-400" : ""}`} />
+          <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-yellow-400" : ""}`} />
           <span>Refresh Analytics</span>
         </button>
       </div>
@@ -114,7 +114,7 @@ export default function AnalyticsPage() {
           value={data ? formatPercent(data.overall_recovery_rate) : "0%"}
           subtitle="Historical success percentage"
           icon={TrendingUp}
-          variant="indigo"
+          variant="yellow"
           loading={loading}
         />
       </div>
@@ -125,7 +125,7 @@ export default function AnalyticsPage() {
         <div className="fintech-card p-6 rounded-2xl border space-y-4">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-indigo-400" />
+              <TrendingUp className="w-4 h-4 text-yellow-400" />
               <span>Recovery Trend Over Time</span>
             </h3>
             <span className="text-xs text-slate-400">Daily Timeline</span>
@@ -189,7 +189,7 @@ export default function AnalyticsPage() {
         <div className="fintech-card p-6 rounded-2xl border space-y-4">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <PieChart className="w-4 h-4 text-indigo-400" />
+              <PieChart className="w-4 h-4 text-yellow-400" />
               <span>Failure Cause Distribution</span>
             </h3>
             <span className="text-xs text-slate-400">Category Share</span>
@@ -240,7 +240,7 @@ export default function AnalyticsPage() {
         <div className="lg:col-span-2 fintech-card p-6 rounded-2xl border space-y-4">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <CreditCard className="w-4 h-4 text-indigo-400" />
+              <CreditCard className="w-4 h-4 text-yellow-400" />
               <span>Payment Channel Recovery Performance</span>
             </h3>
             <span className="text-xs text-slate-400">Failed vs Recovered Volume</span>

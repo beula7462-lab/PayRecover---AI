@@ -88,7 +88,7 @@ export default function DashboardPage() {
     if (severity === "CRITICAL") return <ShieldAlert className="w-5 h-5 text-rose-400" />;
     if (severity === "WARNING") return <AlertTriangle className="w-5 h-5 text-amber-400" />;
     if (severity === "SUCCESS") return <CheckCircle2 className="w-5 h-5 text-emerald-400" />;
-    return <Info className="w-5 h-5 text-indigo-400" />;
+    return <Info className="w-5 h-5 text-yellow-400" />;
   };
 
   return (
@@ -100,8 +100,8 @@ export default function DashboardPage() {
             <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
               Recovery Executive Dashboard
             </h1>
-            <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-bold flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5" /> Dynamic AI
+            <span className="px-2.5 py-0.5 rounded-full bg-yellow-500/15 text-yellow-300 border border-yellow-500/30 text-xs font-bold flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-400" /> Dynamic AI
             </span>
           </div>
           <p className="text-slate-400 text-sm mt-1">
@@ -114,7 +114,7 @@ export default function DashboardPage() {
           disabled={loading}
           className="self-start md:self-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-xs font-bold flex items-center gap-2 transition-all active:scale-95 disabled:opacity-50"
         >
-          <RefreshCw className={`w-4 h-4 text-indigo-400 ${loading ? "animate-spin" : ""}`} />
+          <RefreshCw className={`w-4 h-4 text-yellow-400 ${loading ? "animate-spin" : ""}`} />
           <span>Refresh Live Metrics</span>
         </button>
       </div>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
           value={metrics ? formatPercent(metrics.recovery_rate) : "0%"}
           subtitle="Recovered / Total recoverable"
           icon={TrendingUp}
-          variant="indigo"
+          variant="yellow"
           loading={loading}
         />
         <KpiCard
@@ -163,7 +163,7 @@ export default function DashboardPage() {
           <div className="fintech-card p-6 rounded-2xl border">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800/80">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                <div className="p-2 rounded-xl bg-yellow-500/15 border border-yellow-500/30 text-yellow-400">
                   <Bot className="w-5 h-5" />
                 </div>
                 <div>
@@ -176,7 +176,7 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              <span className="text-[11px] font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">
+              <span className="text-[11px] font-mono text-yellow-300 bg-yellow-500/10 px-2.5 py-1 rounded-md border border-yellow-500/30">
                 LIVE DB FEED
               </span>
             </div>
@@ -192,7 +192,7 @@ export default function DashboardPage() {
                 {insights.insights.map((insight: InsightItem) => (
                   <div
                     key={insight.id}
-                    className="p-4 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700/80 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                    className="p-4 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-yellow-500/30 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                   >
                     <div className="flex items-start gap-3.5">
                       <div className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50 mt-0.5 sm:mt-0">
@@ -214,10 +214,10 @@ export default function DashboardPage() {
                     {insight.target_transaction_id && (
                       <Link
                         href={`/transactions/${insight.target_transaction_id}`}
-                        className="self-end sm:self-center px-3 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all whitespace-nowrap"
+                        className="self-end sm:self-center px-3 py-1.5 rounded-lg bg-yellow-500/15 hover:bg-yellow-500/25 text-yellow-300 border border-yellow-500/40 text-xs font-semibold flex items-center gap-1.5 transition-all whitespace-nowrap"
                       >
                         <span>{insight.action_label || "Analyze"}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-3.5 h-3.5 text-yellow-400" />
                       </Link>
                     )}
                   </div>
@@ -234,14 +234,14 @@ export default function DashboardPage() {
           <div className="fintech-card p-6 rounded-2xl border">
             <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-800/80">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-indigo-400" />
+                <Zap className="w-4 h-4 text-yellow-400" />
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider">
                   Top Priority Queue
                 </h3>
               </div>
               <Link
                 href="/recovery-queue"
-                className="text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
+                className="text-xs font-bold text-yellow-400 hover:text-yellow-300 flex items-center gap-1"
               >
                 <span>View Queue</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -263,13 +263,13 @@ export default function DashboardPage() {
                   return (
                     <div
                       key={txn.transaction_id}
-                      className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-indigo-500/30 transition-all space-y-2.5"
+                      className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-yellow-500/40 transition-all space-y-2.5"
                     >
                       <div className="flex items-center justify-between">
                         <div>
                           <Link
                             href={`/transactions/${txn.transaction_id}`}
-                            className="font-bold text-xs text-white hover:text-indigo-300 transition-colors"
+                            className="font-bold text-xs text-white hover:text-yellow-300 transition-colors"
                           >
                             {txn.customer_name}
                           </Link>
@@ -288,9 +288,9 @@ export default function DashboardPage() {
                       <button
                         onClick={() => handleQuickExecute(txn.transaction_id, txn.recommended_action)}
                         disabled={isExecuting}
-                        className="w-full mt-1 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-md shadow-indigo-600/20 active:scale-98 disabled:opacity-50"
+                        className="w-full mt-1 py-1.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-md shadow-yellow-500/25 active:scale-98 disabled:opacity-50"
                       >
-                        <Zap className={`w-3.5 h-3.5 ${isExecuting ? "animate-spin" : ""}`} />
+                        <Zap className={`w-3.5 h-3.5 fill-slate-950 ${isExecuting ? "animate-spin" : ""}`} />
                         <span>
                           {isExecuting ? "Executing..." : `Execute: ${txn.recommended_action.replace("_", " ")}`}
                         </span>

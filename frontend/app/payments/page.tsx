@@ -100,7 +100,7 @@ export default function PaymentsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-            <CreditCard className="w-7 h-7 text-indigo-400" />
+            <CreditCard className="w-7 h-7 text-yellow-400" />
             <span>Failed Payment Transactions</span>
           </h1>
           <p className="text-slate-400 text-sm mt-1">
@@ -113,7 +113,7 @@ export default function PaymentsPage() {
           disabled={loading}
           className="self-start sm:self-auto px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs font-semibold flex items-center gap-2 transition-all"
         >
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-indigo-400" : ""}`} />
+          <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-yellow-400" : ""}`} />
           <span>Refresh</span>
         </button>
       </div>
@@ -132,7 +132,7 @@ export default function PaymentsPage() {
                 setSearch(e.target.value);
                 setPage(1);
               }}
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 placeholder-slate-500 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 placeholder-slate-500 text-xs focus:outline-none focus:border-yellow-500 transition-colors"
             />
           </div>
 
@@ -143,7 +143,7 @@ export default function PaymentsPage() {
               setStatus(e.target.value);
               setPage(1);
             }}
-            className="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 text-xs focus:outline-none focus:border-indigo-500"
+            className="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 text-xs focus:outline-none focus:border-yellow-500"
           >
             <option value="">All Statuses</option>
             {STATUS_OPTIONS.map((s) => (
@@ -158,7 +158,7 @@ export default function PaymentsPage() {
               setPaymentMethod(e.target.value);
               setPage(1);
             }}
-            className="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 text-xs focus:outline-none focus:border-indigo-500"
+            className="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 text-xs focus:outline-none focus:border-yellow-500"
           >
             <option value="">All Payment Methods</option>
             {PAYMENT_METHODS.map((m) => (
@@ -173,7 +173,7 @@ export default function PaymentsPage() {
               setFailureReason(e.target.value);
               setPage(1);
             }}
-            className="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 text-xs focus:outline-none focus:border-indigo-500"
+            className="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 text-xs focus:outline-none focus:border-yellow-500"
           >
             <option value="">All Failure Reasons</option>
             {FAILURE_REASONS.map((r) => (
@@ -187,7 +187,7 @@ export default function PaymentsPage() {
             <span className="text-slate-400">Active filters applied</span>
             <button
               onClick={handleResetFilters}
-              className="text-indigo-400 hover:text-indigo-300 font-semibold"
+              className="text-yellow-400 hover:text-yellow-300 font-semibold"
             >
               Reset Filters
             </button>
@@ -244,7 +244,7 @@ export default function PaymentsPage() {
                     key={txn.transaction_id}
                     className="hover:bg-slate-900/50 transition-colors group"
                   >
-                    <td className="p-4 font-mono font-bold text-indigo-300">
+                    <td className="p-4 font-mono font-bold text-yellow-300">
                       {txn.transaction_id}
                     </td>
                     <td className="p-4 font-semibold text-white">
@@ -276,9 +276,9 @@ export default function PaymentsPage() {
                     <td className="p-4 text-right">
                       <Link
                         href={`/transactions/${txn.transaction_id}`}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-indigo-600/15 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 font-semibold transition-all"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-yellow-500/15 hover:bg-yellow-500/30 text-yellow-300 border border-yellow-500/40 font-semibold transition-all"
                       >
-                        <Eye className="w-3.5 h-3.5" />
+                        <Eye className="w-3.5 h-3.5 text-yellow-400" />
                         <span>Analyze</span>
                       </Link>
                     </td>

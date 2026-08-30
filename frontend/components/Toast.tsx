@@ -38,8 +38,8 @@ export default function Toast({ toast, onClose }: ToastProps) {
       icon: <AlertTriangle className="w-5 h-5 text-rose-400 flex-shrink-0" />,
     },
     info: {
-      bg: "bg-slate-900 border-indigo-500/40 text-indigo-400",
-      icon: <Info className="w-5 h-5 text-indigo-400 flex-shrink-0" />,
+      bg: "bg-slate-900 border-yellow-500/40 text-yellow-400",
+      icon: <Info className="w-5 h-5 text-yellow-400 flex-shrink-0" />,
     },
   };
 
