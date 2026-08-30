@@ -30,16 +30,16 @@ export default function Toast({ toast, onClose }: ToastProps) {
 
   const typeConfig = {
     success: {
-      bg: "bg-slate-900 border-emerald-500/40 text-emerald-400",
-      icon: <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />,
+      bg: "bg-white border-emerald-400 text-slate-900 shadow-xl",
+      icon: <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />,
     },
     error: {
-      bg: "bg-slate-900 border-rose-500/40 text-rose-400",
-      icon: <AlertTriangle className="w-5 h-5 text-rose-400 flex-shrink-0" />,
+      bg: "bg-white border-rose-400 text-slate-900 shadow-xl",
+      icon: <AlertTriangle className="w-5 h-5 text-rose-600 flex-shrink-0" />,
     },
     info: {
-      bg: "bg-slate-900 border-yellow-500/40 text-yellow-400",
-      icon: <Info className="w-5 h-5 text-yellow-400 flex-shrink-0" />,
+      bg: "bg-white border-yellow-400 text-slate-900 shadow-xl",
+      icon: <Info className="w-5 h-5 text-yellow-600 flex-shrink-0" />,
     },
   };
 
@@ -49,22 +49,21 @@ export default function Toast({ toast, onClose }: ToastProps) {
     <div className="fixed bottom-6 right-6 z-50 animate-bounce-in max-w-md w-full">
       <div
         className={cn(
-          "p-4 rounded-2xl border shadow-2xl flex items-start gap-3 backdrop-blur-xl",
+          "p-4 rounded-2xl border shadow-xl flex items-start gap-3 bg-white",
           config.bg
         )}
       >
         {config.icon}
         <div className="flex-1 min-w-0 pr-2">
-          <h4 className="text-sm font-bold text-white tracking-tight">{toast.title}</h4>
-          <p className="text-xs text-slate-300 mt-1 leading-relaxed">{toast.message}</p>
+          <h4 className="text-sm font-bold text-slate-900 tracking-tight">{toast.title}</h4>
+          <p className="text-xs text-slate-600 mt-1 leading-relaxed">{toast.message}</p>
         </div>
         <button
           onClick={onClose}
-          className="text-slate-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-slate-800"
+          className="text-slate-400 hover:text-slate-700 transition-colors p-1 rounded-lg hover:bg-slate-100"
         >
           <X className="w-4 h-4" />
         </button>
-      </div>
     </div>
   );
 }

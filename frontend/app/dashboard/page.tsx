@@ -85,10 +85,10 @@ export default function DashboardPage() {
   };
 
   const getInsightIcon = (type: string, severity: string) => {
-    if (severity === "CRITICAL") return <ShieldAlert className="w-5 h-5 text-rose-400" />;
-    if (severity === "WARNING") return <AlertTriangle className="w-5 h-5 text-amber-400" />;
-    if (severity === "SUCCESS") return <CheckCircle2 className="w-5 h-5 text-emerald-400" />;
-    return <Info className="w-5 h-5 text-yellow-400" />;
+    if (severity === "CRITICAL") return <ShieldAlert className="w-5 h-5 text-rose-600" />;
+    if (severity === "WARNING") return <AlertTriangle className="w-5 h-5 text-amber-600" />;
+    if (severity === "SUCCESS") return <CheckCircle2 className="w-5 h-5 text-emerald-600" />;
+    return <Info className="w-5 h-5 text-yellow-600" />;
   };
 
   return (
@@ -97,14 +97,14 @@ export default function DashboardPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
+            <h1 className="text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">
               Recovery Executive Dashboard
             </h1>
-            <span className="px-2.5 py-0.5 rounded-full bg-yellow-500/15 text-yellow-300 border border-yellow-500/30 text-xs font-bold flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-yellow-400" /> Dynamic AI
+            <span className="px-2.5 py-0.5 rounded-full bg-yellow-100 text-yellow-900 border border-yellow-300 text-xs font-extrabold flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-700" /> Dynamic AI
             </span>
           </div>
-          <p className="text-slate-400 text-sm mt-1">
+          <p className="text-slate-600 text-sm mt-1 font-medium">
             Real-time digital payment failure analytics and automated recovery engine performance.
           </p>
         </div>
@@ -112,9 +112,9 @@ export default function DashboardPage() {
         <button
           onClick={loadDashboardData}
           disabled={loading}
-          className="self-start md:self-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-xs font-bold flex items-center gap-2 transition-all active:scale-95 disabled:opacity-50"
+          className="self-start md:self-auto px-4 py-2.5 rounded-xl bg-white hover:bg-yellow-50 border border-slate-200 text-slate-800 text-xs font-bold flex items-center gap-2 transition-all shadow-xs active:scale-95 disabled:opacity-50"
         >
-          <RefreshCw className={`w-4 h-4 text-yellow-400 ${loading ? "animate-spin" : ""}`} />
+          <RefreshCw className={`w-4 h-4 text-yellow-600 ${loading ? "animate-spin" : ""}`} />
           <span>Refresh Live Metrics</span>
         </button>
       </div>
@@ -160,23 +160,23 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Left Column (2 Cols): Dynamic DB AI Insights */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="fintech-card p-6 rounded-2xl border">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800/80">
+          <div className="fintech-card p-6 rounded-2xl border border-slate-200 bg-white">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-xl bg-yellow-500/15 border border-yellow-500/30 text-yellow-400">
+                <div className="p-2 rounded-xl bg-yellow-400 text-slate-950 border border-yellow-500/40 shadow-xs">
                   <Bot className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-white tracking-tight">
+                  <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
                     AI Insights & Signals
                   </h2>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500 font-medium">
                     Engineered from active PostgreSQL transaction patterns
                   </p>
                 </div>
               </div>
 
-              <span className="text-[11px] font-mono text-yellow-300 bg-yellow-500/10 px-2.5 py-1 rounded-md border border-yellow-500/30">
+              <span className="text-[11px] font-mono font-extrabold text-yellow-900 bg-yellow-100 px-2.5 py-1 rounded-md border border-yellow-300">
                 LIVE DB FEED
               </span>
             </div>
@@ -184,7 +184,7 @@ export default function DashboardPage() {
             {loading ? (
               <div className="space-y-4">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="p-4 rounded-xl border border-slate-800 bg-slate-900/40 skeleton-pulse h-20" />
+                  <div key={i} className="p-4 rounded-xl border border-slate-200 bg-slate-50 skeleton-pulse h-20" />
                 ))}
               </div>
             ) : insights && insights.insights.length > 0 ? (
@@ -192,20 +192,20 @@ export default function DashboardPage() {
                 {insights.insights.map((insight: InsightItem) => (
                   <div
                     key={insight.id}
-                    className="p-4 rounded-xl bg-slate-900/50 border border-slate-800/80 hover:border-yellow-500/30 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                    className="p-4 rounded-xl bg-slate-50/80 border border-slate-200 hover:border-yellow-400 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                   >
                     <div className="flex items-start gap-3.5">
-                      <div className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50 mt-0.5 sm:mt-0">
+                      <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs mt-0.5 sm:mt-0">
                         {getInsightIcon(insight.type, insight.severity)}
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <h4 className="text-sm font-bold text-white">{insight.title}</h4>
-                          <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                          <h4 className="text-sm font-bold text-slate-900">{insight.title}</h4>
+                          <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-slate-200 text-slate-700 border border-slate-300">
                             {insight.impact}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                        <p className="text-xs text-slate-600 mt-1 leading-relaxed font-medium">
                           {insight.description}
                         </p>
                       </div>
@@ -214,34 +214,34 @@ export default function DashboardPage() {
                     {insight.target_transaction_id && (
                       <Link
                         href={`/transactions/${insight.target_transaction_id}`}
-                        className="self-end sm:self-center px-3 py-1.5 rounded-lg bg-yellow-500/15 hover:bg-yellow-500/25 text-yellow-300 border border-yellow-500/40 text-xs font-semibold flex items-center gap-1.5 transition-all whitespace-nowrap"
+                        className="self-end sm:self-center px-3.5 py-2 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-extrabold flex items-center gap-1.5 transition-all shadow-xs whitespace-nowrap"
                       >
                         <span>{insight.action_label || "Analyze"}</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-yellow-400" />
+                        <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
                       </Link>
                     )}
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-xs text-slate-400 py-6 text-center">No current alerts detected.</p>
+              <p className="text-xs text-slate-500 py-6 text-center font-medium">No current alerts detected.</p>
             )}
           </div>
         </div>
 
         {/* Right Column (1 Col): Top Priority Recovery Actions */}
         <div className="space-y-6">
-          <div className="fintech-card p-6 rounded-2xl border">
-            <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-800/80">
+          <div className="fintech-card p-6 rounded-2xl border border-slate-200 bg-white">
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-200">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-yellow-400" />
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+                <Zap className="w-4 h-4 text-yellow-600" />
+                <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider">
                   Top Priority Queue
                 </h3>
               </div>
               <Link
                 href="/recovery-queue"
-                className="text-xs font-bold text-yellow-400 hover:text-yellow-300 flex items-center gap-1"
+                className="text-xs font-bold text-yellow-700 hover:text-yellow-900 flex items-center gap-1"
               >
                 <span>View Queue</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -251,7 +251,7 @@ export default function DashboardPage() {
             {loading ? (
               <div className="space-y-3">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="p-3 rounded-xl bg-slate-900/40 border border-slate-800 skeleton-pulse h-16" />
+                  <div key={i} className="p-3 rounded-xl bg-slate-50 border border-slate-200 skeleton-pulse h-16" />
                 ))}
               </div>
             ) : topQueue.length > 0 ? (
@@ -263,24 +263,24 @@ export default function DashboardPage() {
                   return (
                     <div
                       key={txn.transaction_id}
-                      className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-yellow-500/40 transition-all space-y-2.5"
+                      className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 hover:border-yellow-400 transition-all space-y-2.5"
                     >
                       <div className="flex items-center justify-between">
                         <div>
                           <Link
                             href={`/transactions/${txn.transaction_id}`}
-                            className="font-bold text-xs text-white hover:text-yellow-300 transition-colors"
+                            className="font-extrabold text-xs text-slate-900 hover:text-yellow-700 transition-colors"
                           >
                             {txn.customer_name}
                           </Link>
-                          <p className="text-[11px] font-mono text-slate-400">{txn.transaction_id}</p>
+                          <p className="text-[11px] font-mono text-slate-500">{txn.transaction_id}</p>
                         </div>
-                        <span className="text-sm font-extrabold text-white">
+                        <span className="text-sm font-extrabold text-slate-900">
                           {formatINR(txn.amount)}
                         </span>
                       </div>
 
-                      <div className="flex items-center justify-between pt-1 border-t border-slate-800/50">
+                      <div className="flex items-center justify-between pt-1 border-t border-slate-200">
                         <PriorityBadge priority={txn.priority} />
                         <ProbabilityBadge probability={txn.recovery_probability} size="sm" />
                       </div>
@@ -288,7 +288,7 @@ export default function DashboardPage() {
                       <button
                         onClick={() => handleQuickExecute(txn.transaction_id, txn.recommended_action)}
                         disabled={isExecuting}
-                        className="w-full mt-1 py-1.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-slate-950 text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-md shadow-yellow-500/25 active:scale-98 disabled:opacity-50"
+                        className="w-full mt-1 py-2 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-md shadow-yellow-400/25 active:scale-98 disabled:opacity-50"
                       >
                         <Zap className={`w-3.5 h-3.5 fill-slate-950 ${isExecuting ? "animate-spin" : ""}`} />
                         <span>
@@ -300,7 +300,7 @@ export default function DashboardPage() {
                 })}
               </div>
             ) : (
-              <p className="text-xs text-slate-400 text-center py-6">All failed transactions resolved!</p>
+              <p className="text-xs text-slate-500 text-center py-6 font-medium">All failed transactions resolved!</p>
             )}
           </div>
         </div>

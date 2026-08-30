@@ -63,11 +63,11 @@ export default function AnalyticsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-            <BarChart3 className="w-8 h-8 text-yellow-400" />
+          <h1 className="text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2.5">
+            <BarChart3 className="w-8 h-8 text-yellow-600" />
             <span>Recovery & Disruption Analytics</span>
           </h1>
-          <p className="text-slate-400 text-sm mt-1">
+          <p className="text-slate-600 text-sm mt-1 font-medium">
             Comprehensive financial breakdown of payment failure patterns and recovery performance.
           </p>
         </div>
@@ -75,9 +75,9 @@ export default function AnalyticsPage() {
         <button
           onClick={fetchAnalytics}
           disabled={loading}
-          className="self-start sm:self-auto px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs font-semibold flex items-center gap-2 transition-all"
+          className="self-start sm:self-auto px-4 py-2 rounded-xl bg-white hover:bg-yellow-50 border border-slate-200 text-slate-800 text-xs font-bold flex items-center gap-2 transition-all shadow-xs"
         >
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-yellow-400" : ""}`} />
+          <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-yellow-600" : ""}`} />
           <span>Refresh Analytics</span>
         </button>
       </div>
@@ -122,18 +122,18 @@ export default function AnalyticsPage() {
       {/* Main Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Chart 1: Line / Area Chart - Recovery Trend Over Time */}
-        <div className="fintech-card p-6 rounded-2xl border space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-yellow-400" />
+        <div className="fintech-card p-6 rounded-2xl border border-slate-200 bg-white space-y-4 shadow-xs">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-yellow-600" />
               <span>Recovery Trend Over Time</span>
             </h3>
-            <span className="text-xs text-slate-400">Daily Timeline</span>
+            <span className="text-xs text-slate-500 font-medium">Daily Timeline</span>
           </div>
 
           <div className="h-72 w-full pt-2">
             {loading ? (
-              <div className="w-full h-full skeleton-pulse rounded-xl bg-slate-900/60" />
+              <div className="w-full h-full skeleton-pulse rounded-xl bg-slate-100" />
             ) : data && data.recovery_trends.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={data.recovery_trends}>
@@ -151,10 +151,11 @@ export default function AnalyticsPage() {
                   <YAxis stroke="#64748b" fontSize={11} tickLine={false} tickFormatter={(v) => `₹${v / 1000}k`} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "#0f172a",
-                      borderColor: "#1e293b",
+                      backgroundColor: "#ffffff",
+                      borderColor: "#e2e8f0",
                       borderRadius: "12px",
                       fontSize: "12px",
+                      boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)",
                     }}
                     formatter={(value: any) => [formatINR(Number(value)), ""]}
                   />
@@ -180,24 +181,24 @@ export default function AnalyticsPage() {
                 </AreaChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-xs text-slate-400 text-center py-20">No timeline data available.</p>
+              <p className="text-xs text-slate-500 text-center py-20 font-medium">No timeline data available.</p>
             )}
           </div>
         </div>
 
         {/* Chart 2: Failure Reason Distribution Donut Chart */}
-        <div className="fintech-card p-6 rounded-2xl border space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <PieChart className="w-4 h-4 text-yellow-400" />
+        <div className="fintech-card p-6 rounded-2xl border border-slate-200 bg-white space-y-4 shadow-xs">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <PieChart className="w-4 h-4 text-yellow-600" />
               <span>Failure Cause Distribution</span>
             </h3>
-            <span className="text-xs text-slate-400">Category Share</span>
+            <span className="text-xs text-slate-500 font-medium">Category Share</span>
           </div>
 
           <div className="h-72 w-full pt-2 flex items-center justify-center">
             {loading ? (
-              <div className="w-full h-full skeleton-pulse rounded-xl bg-slate-900/60" />
+              <div className="w-full h-full skeleton-pulse rounded-xl bg-slate-100" />
             ) : data && data.failure_distribution.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <RePieChart>
@@ -217,10 +218,11 @@ export default function AnalyticsPage() {
                   </Pie>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "#0f172a",
-                      borderColor: "#1e293b",
+                      backgroundColor: "#ffffff",
+                      borderColor: "#e2e8f0",
                       borderRadius: "12px",
                       fontSize: "12px",
+                      boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)",
                     }}
                     formatter={(value: any, name: any) => [
                       `${formatINR(Number(value))}`,
@@ -231,24 +233,24 @@ export default function AnalyticsPage() {
                 </RePieChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-xs text-slate-400 text-center py-20">No category data available.</p>
+              <p className="text-xs text-slate-500 text-center py-20 font-medium">No category data available.</p>
             )}
           </div>
         </div>
 
         {/* Chart 3: Payment Method Performance Bar Chart */}
-        <div className="lg:col-span-2 fintech-card p-6 rounded-2xl border space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <CreditCard className="w-4 h-4 text-yellow-400" />
+        <div className="lg:col-span-2 fintech-card p-6 rounded-2xl border border-slate-200 bg-white space-y-4 shadow-xs">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <CreditCard className="w-4 h-4 text-yellow-600" />
               <span>Payment Channel Recovery Performance</span>
             </h3>
-            <span className="text-xs text-slate-400">Failed vs Recovered Volume</span>
+            <span className="text-xs text-slate-500 font-medium">Failed vs Recovered Volume</span>
           </div>
 
           <div className="h-80 w-full pt-2">
             {loading ? (
-              <div className="w-full h-full skeleton-pulse rounded-xl bg-slate-900/60" />
+              <div className="w-full h-full skeleton-pulse rounded-xl bg-slate-100" />
             ) : data && data.payment_method_performance.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data.payment_method_performance}>
@@ -256,10 +258,11 @@ export default function AnalyticsPage() {
                   <YAxis stroke="#64748b" fontSize={11} tickLine={false} tickFormatter={(v) => `₹${v / 1000}k`} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "#0f172a",
-                      borderColor: "#1e293b",
+                      backgroundColor: "#ffffff",
+                      borderColor: "#e2e8f0",
                       borderRadius: "12px",
                       fontSize: "12px",
+                      boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)",
                     }}
                     formatter={(value: any) => [formatINR(Number(value)), ""]}
                   />
@@ -269,7 +272,7 @@ export default function AnalyticsPage() {
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-xs text-slate-400 text-center py-20">No channel performance data available.</p>
+              <p className="text-xs text-slate-500 text-center py-20 font-medium">No channel performance data available.</p>
             )}
           </div>
         </div>
