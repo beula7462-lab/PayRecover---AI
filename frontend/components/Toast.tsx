@@ -64,6 +64,7 @@ export default function Toast({ toast, onClose }: ToastProps) {
         >
           <X className="w-4 h-4" />
         </button>
+      </div>
     </div>
   );
 }
